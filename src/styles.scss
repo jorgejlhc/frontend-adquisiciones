@@ -1,1 +1,56 @@
-/* You can add global styles to this file, and also import other style files */
+// Configura las variables ANTES de importar Bootstrap
+$primary: #4B69A6;
+$secondary: #2A3A59;
+$accent: #77D9D9;
+$success: #14D9A1;
+$light: #F2F2F2;
+
+// Importa Bootstrap después de definir las variables
+@import 'bootstrap/scss/bootstrap';
+@import 'bootstrap-icons/font/bootstrap-icons.css';
+
+// Estilos personalizados
+body {
+  background-color: $light;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+// Clases de utilidad
+.bg-accent { background-color: $accent !important; }
+.bg-light { background-color: $light !important; }
+
+.text-accent { color: $accent !important; }
+.text-light { color: $light !important; }
+
+// Sobrescritura de estilos de Bootstrap
+.btn-primary {
+  background-color: $primary;
+  border-color: darken($primary, 5%);
+  
+  &:hover {
+    background-color: darken($primary, 10%);
+    border-color: darken($primary, 15%);
+  }
+}
+
+.navbar {
+  background-color: $primary !important;
+}
+
+.modal-header {
+  background-color: $primary;
+  color: white;
+}
+
+.status-pending { color: orange; }
+.status-approved { color: green; }
+.status-rejected { color: red; }
+
+table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+mat-form-field {
+  margin-right: 10px;
+}
