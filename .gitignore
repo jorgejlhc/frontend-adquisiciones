@@ -1,42 +1,61 @@
-# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+# Visual Studio/IDE
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
 
-# Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
+# Archivos de compilación
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
 
-# Node
+# Dependencias
 /node_modules
-npm-debug.log
-yarn-error.log
-
-# IDEs and editors
-.idea/
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
-
-# Visual Studio Code
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history/*
-
-# Miscellaneous
 /.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
-/typings
 
-# System files
+# Archivos de compilación
+/dist
+/.dist
+/out-tsc
+/aot
+
+# Archivos de entorno
+/environments/environment.ts
+/environments/environment.prod.ts
+
+# Archivos de desarrollo
+/.idea
+/.vscode
+/.sublime-workspace
+*.tmp
+*.log
+
+# Archivos de cobertura y testing
+/coverage
+*.lcov
+/junit.xml
+/test-results.xml
+
+# Archivos específicos de Angular
+/.ng_pkg_build
+/.rpt2_cache
+/.sass-cache
+/browserslist
+/karma.conf.js
+/tsconfig.*.json
+/tslint.json
+/package-lock.json
+/yarn.lock
+
+# Archivos de IDE
+*.swp
+*.swo
 .DS_Store
-Thumbs.db
+.Thumbs.db
