@@ -1,0 +1,81 @@
+<div class="container-fluid py-4">
+  <div class="card shadow">
+    <div class="card-header bg-primary text-light">
+      <div class="d-flex justify-content-between align-items-center">
+        <h3 class="mb-0">Listado de Adquisiciones</h3>
+        <button class="btn btn-success btn-add" (click)="abrirFormulario()">
+          <i class="fas fa-plus-circle me-2"></i>
+          Nueva Adquisición
+        </button>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <div *ngIf="isLoading" class="text-center py-5">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Cargando...</span>
+        </div>
+      </div>
+
+      <div *ngIf="!isLoading">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead class="table-light">
+              <tr>
+                <th>ID</th>
+                <th>Presupuesto</th>
+                <th>Unidad</th>
+                <th>Tipo</th>
+                <th>Cantidad</th>
+                <th>Valor Unitario</th>
+                <th>Valor Total</th>
+                <th>Fecha</th>
+                <th>Proveedor</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of adquisiciones">
+                <td>{{ item.id }}</td>
+                <td>{{ item.presupuesto }}</td>
+                <td>{{ item.unidad }}</td>
+                <td>{{ item.tipoBienServicio }}</td>
+                <td>{{ item.cantidad }}</td>
+                <td>{{ item.valorUnitario | currency }}</td>
+                <td>{{ item.valorTotal | currency }}</td>
+                <td>{{ item.fechaAdquisicion | date:'dd/MM/yyyy' }}</td>
+                <td>{{ item.proveedor }}</td>                
+                <td class="text-center">
+                  <div class="d-flex gap-2">
+                    <!-- Botón Editar -->
+                    <button class="btn btn-primary btn-action" (click)="abrirFormulario(item)">
+                      <i class="fas fa-edit me-1"></i>
+                      Editar
+                    </button>
+
+                    <!-- Botón Eliminar -->
+                    <button class="btn btn-danger btn-action" (click)="eliminarAdquisicion(item.id)">
+                      <i class="fas fa-trash-alt me-1"></i>
+                      Eliminar
+                    </button>
+
+                    <!-- Botón Histórico -->
+                    <button class="btn btn-success btn-action" (click)="abrirHistorico(item.id)">
+                      <i class="fas fa-edit me-1"></i>
+                      Histórico
+                    </button>
+
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div *ngIf="adquisiciones.length === 0" class="alert alert-info text-center">
+          No hay adquisiciones registradas
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

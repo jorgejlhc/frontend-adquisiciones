@@ -1,0 +1,63 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="modal-header bg-primary text-white">
+    <h5 class="modal-title">{{ adquisicion ? 'Editar' : 'Nueva' }} Adquisición</h5>
+    <button type="button" class="btn-close btn-close-white" (click)="activeModal.dismiss()"></button>
+  </div>
+
+  <div class="modal-body">
+    <div class="row g-3">
+      <!-- Campos del formulario -->
+      <div class="col-md-6">
+        <label class="form-label">Presupuesto</label>
+        <input type="text" class="form-control" formControlName="presupuesto">
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Unidad</label>
+        <input type="text" class="form-control" formControlName="unidad">
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Tipo de Bien/Servicio</label>
+        <input type="text" class="form-control" formControlName="tipoBienServicio">
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Cantidad</label>
+        <input type="number" class="form-control" formControlName="cantidad" min="1">
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Valor Unitario</label>
+        <input type="number" class="form-control" formControlName="valorUnitario" min="0" step="0.01">
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Valor Total</label>
+        <input type="number" class="form-control" formControlName="valorTotal" readonly>
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Fecha Adquisición</label>
+        <input type="date" class="form-control" formControlName="fechaAdquisicion">
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">Proveedor</label>
+        <input type="text" class="form-control" formControlName="proveedor">
+      </div>
+
+      <div class="col-12">
+        <label class="form-label">Documentación</label>
+        <textarea class="form-control" formControlName="documentacion" rows="3"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss()">Cancelar</button>
+    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">
+      {{ adquisicion ? 'Actualizar' : 'Guardar' }}
+    </button>
+  </div>
+</form>
