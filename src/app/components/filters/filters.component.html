@@ -1,0 +1,18 @@
+<form [formGroup]="filterForm" (ngSubmit)="applyFilters()">
+    <mat-form-field>
+      <input matInput placeholder="Buscar" formControlName="searchText">
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Estado</mat-label>
+      <mat-select formControlName="status">
+        <mat-option value="">Todos</mat-option>
+        <mat-option value="pending">Pendiente</mat-option>
+        <mat-option value="approved">Aprobado</mat-option>
+        <mat-option value="rejected">Rechazado</mat-option>
+      </mat-select>
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" type="submit">Aplicar</button>
+    <button mat-button type="button" (click)="clearFilters()">Limpiar</button>
+  </form>
